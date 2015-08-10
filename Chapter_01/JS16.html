@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>prototype初探</title>
+    <script>
+        function Person(name) {
+            this.name = name;       // 设置对象属性, 每个对象各自有一份属性数据
+        };
+
+        Person.prototype.SayHello = function() {    // 给Person函数的prototype添加SayHello方法
+            alert("Hello, I'm " + this.name);
+        };
+
+        var BillGates = new Person('Bill Gates');
+        var SteveJobs = new Person('Steve Jobs');
+
+        BillGates.SayHello();       // 通过BillGates对象直接调用SayHello方法
+        SteveJobs.SayHello();       // 通过SteveJobs对象直接调用SayHello方法
+
+        alert(BillGates.SayHello == SteveJobs.SayHello);    // 输出: true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

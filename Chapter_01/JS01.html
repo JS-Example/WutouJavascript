@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Javascript中没有类的概念</title>
+    <script>
+        var life = {};  // 光溜溜的生命对象
+        for(life.age=1; life.age<=3; life.age++) {
+            switch (life.age) {
+                case 1:
+                    life.body = '卵细胞';  //增加body属性
+                    life.say = function() {
+                        alert(this.age + this.body);    // 新建say方法
+                    };
+                    break;
+                case 2:
+                    life.tail = '尾巴';   // 增加tail属性
+                    life.gill = '腮';    //  增加gill属性
+                    life.body = '蝌蚪';
+                    life.say = function() {
+                        alert(this.age + '-' + this.body + '-' + this.tail + '-' + this.gill);
+                    };
+                    break;
+                case 3:
+                    delete life.tail;   //删除tail属性
+                    delete life.gill;   // 删除gill属性
+                    life.legs = '四条腿';  // 增加legs属性
+                    life.lung = '肺';    // 增加lung属性
+                    life.body = '青蛙';
+                    life.say = function() {
+                        alert(this.age + this.body + '-' + this.legs + ',' + this.lung);
+                    };
+                    break;
+            }
+
+            life.say();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

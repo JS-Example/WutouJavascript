@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>prototype - 动态扩展</title>
+    <script>
+        function Person(name) {     // 基类构造函数
+            this.name = name;
+        };
+
+        Person.prototype.SayHello = function() {    // 建立对象前定义的方法
+            alert("Hello, I'm " + this.name);
+        };
+
+        var BillGates = new Person('Bill Gates');           // 创建基类Person的BillGates对象
+        BillGates.SayHello();       // 由于继承了原型的东西, 规规矩矩输出: Hello, I'm Bill Gates
+
+        Person.prototype.Retire = function() {              // 建立对象后再动态扩展原型的方法
+            alert('Poor ' + this.name + ', bye bye!');
+        };
+
+        BillGates.Retire();       // 动态扩展的方法即可被先前建立的对象立即调用
+    </script>
+</head>
+<body>
+
+</body>
+</html>

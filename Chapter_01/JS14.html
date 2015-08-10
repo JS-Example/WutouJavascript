@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+    <script>
+        function Person(name) {             // 带参数的构造函数
+            this.name = name;               // 定义并初始化name属性
+            this.SayHello = function() {    // 定义对象SayHello方法
+                alert("Hello, I'm " + this.name);
+            };
+        };
+
+        function Employee(name, salary) {   // 子构造函数
+            Person.call(this, name);        // 调用父构造函数
+            this.salary = salary;           // 添加并初始化salary属性
+            this.ShowMeTheMoney = function() {  // 添加对象方法ShowMeTheMoney
+                alert(this.name + ' $ ' + this.salary);
+            };
+        };
+
+        var BillGates = new Person('Bill Gates');           // 创建Person类的BillGates对象
+        var SteveJobs = new Employee('Steve Jobs', 1234);   // 创建Employee类的SteveJobs对象
+
+        BillGates.SayHello();       // 输出: Hello, I'm Bill Gates
+        SteveJobs.SayHello();       // 输出: Hello, I'm Steve Jobs
+        SteveJobs.ShowMeTheMoney(); // 输出: Steve Jobs $ 1234
+
+        alert(BillGates.constructor == Person);     // 输出: true
+        alert(SteveJobs.constructor == Employee);   // 输出: true
+
+        alert(BillGates.SayHello == SteveJobs.SayHello);     // 输出: false
+    </script>
+</head>
+<body>
+
+</body>
+</html>

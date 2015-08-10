@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数对象化能力</title>
+    <script>
+        function Sing() {
+            alert(Sing.author + ': ' + Sing.poem);      // 输出自己的caller
+        };
+        Sing.author = '李白';
+        Sing.poem = '汉家秦地月, 流影照明妃. 一上玉关道, 天涯去不归...';
+        Sing();
+
+        Sing.author = '李战';
+        Sing.poem = '日出汉家天, 月落阴山前. 女儿琵琶怨, 已唱三千年...';
+        Sing();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

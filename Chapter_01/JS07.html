@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>代码的时空</title>
+    <script>
+       var yourName = '王菲';
+       myName = 'leadzen';
+
+       alert(myName + ' like ' + yourName);
+
+       ChangeNames();  // 调用改名函数
+
+       // 改名函数, 在函数体内改名
+       function ChangeNames() {
+           alert('Your old name is ' + yourName);   // 输出: Your old name is undefined
+           alert('My old name is ' + myName);       // 输出: My old name is leadzen
+           var yourName = '王靖雯';
+           myName = '李战';
+
+           alert(myName + ' like ' + yourName);     // 输出: 李战 like 王靖雯
+       };
+
+       alert(myName + ' like ' + yourName);     // 输出: 李战 like 王菲
+    </script>
+</head>
+<body>
+
+</body>
+</html>

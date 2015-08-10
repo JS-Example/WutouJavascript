@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>prototype - 理解继承</title>
+    <script>
+        function Person(name) {     // 基类构造函数
+            this.name = name;
+        };
+
+        Person.prototype.company = 'Microsoft';     // 原型的属性
+        Person.prototype.SayHello = function() {    // 原型的方法
+            alert("Hello, I'm " + this.name + ' of '+ this.company);
+        };
+
+        var BillGates = new Person('Bill Gates');           // 创建基类Person的BillGates对象
+        BillGates.SayHello();       // 由于继承了原型的东西, 规规矩矩输出: Hello, I'm Bill Gates
+
+        var SteveJobs = new Person('Steve Jobs');
+        SteveJobs.company = 'Apple';        // 设置自己的company属性, 掩盖了原型的company属性
+        SteveJobs.SayHello = function() {   // 设置自己的SayHello方法, 掩盖了原型的SayHello方法
+            alert("Hi, " + this.name + ' like ' + this.company + ', ha ha');
+        };
+
+        SteveJobs.SayHello();       // 都是自己覆盖的属性和方法, 输出: Hi, Steve Jobs like Apple, ha ha
+        BillGates.SayHello();       // Steve Jobs的覆盖没有影响原型对象, Bill Gates还是按老样子输出
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>caller用法</title>
+    <script>
+        function WhoCallMe() {
+            alert('My caller is ' + WhoCallMe.caller);      // 输出自己的caller
+        };
+
+        function CallerA() {
+          WhoCallMe();
+        };
+
+        function CallerB() {
+            WhoCallMe();
+        };
+
+        alert(WhoCallMe.caller);    // 输出null
+
+        WhoCallMe();                // 输出: My caller is null
+
+        CallerA();                  // 输出 My caller is function CallerA() {WhoCallMe();};
+
+        CallerB();                  // 输出 My caller is function CallerB() {WhoCallMe();};
+    </script>
+</head>
+<body>
+
+</body>
+</html>

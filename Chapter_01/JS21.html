@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>使用原型模拟类</title>
+    <script>
+        // 定义构造函数
+        function Person(name) {
+            this.name = name;
+        };
+        // 方法定义到构造函数的prototype上
+        Person.prototype.SayHello = function() {
+            alert("Hello, I'm " + this.name);
+        };
+
+        // 子类构造函数
+        function Employee(name, salary){
+            Person.call(this, name);    // 调用上层构造函数
+            this.salary = salary;       // 扩展的成员
+        };
+        // 子类构造函数首先要调用上层构造函数来建立prototype对象, 实现继承的概念
+        Employee.prototype = new Person();      // 只需要其prototype的方法, 其他东西没有任何意义
+        // 子类方法也定义到构造函数之上
+        Employee.prototype.ShowMeTheMoney = function() {
+            alert(this.name + ' $ ' + this.salary);
+        };
+
+        var BillGates = new Person('Bill Gates');
+        BillGates.SayHello();
+
+        var SteveJobs = new Employee('Steve Jobs', 1234);
+        SteveJobs.SayHello();
+        SteveJobs.ShowMeTheMoney();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
