@@ -1,6 +1,6 @@
 # WutouJavascript 悟透JavaScript：美繪本（簡體書）
 ## SoureCode in the book
-### Chaper1
+### Chapter1 File
 ![](https://i.imgur.com/Chqx2Ia.png)
 
 ## reference
