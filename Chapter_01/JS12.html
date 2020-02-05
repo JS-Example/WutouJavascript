@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数对象化能力</title>
+    <script>
+        var anFunction = {};                              // 一个函數
+        anFunction.aProperty = 'Property of Function';      // 函數的一个属性
+        anFunction.aMethod = function () {                // 函數的一个方法
+            alert('Method of object');
+        };
+
+        alert(anFunction['aProperty']);                   // 可以将函數当数组以属性名作为下标来访问属性
+        alert(anFunction['aMethod']);                     // 可以将函數当数组以属性名作为下标来访问方法
+
+        for(var s in anFunction) {                        // 遍历函數的所有属性和方法进行迭代化处理
+            alert(s + ' is a ' + typeof(anFunction[s]));
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -17,21 +17,6 @@
             alert(s + ' is a ' + typeof(anObject[s]));
         };
 
-
-
-
-        var anFunction = {};                              // 一个对象
-        anFunction.aProperty = 'Property of Function';      // 对象的一个属性
-        anFunction.aMethod = function () {                // 对象的一个方法
-            alert('Method of object');
-        };
-
-        alert(anFunction['aProperty']);                   // 可以将对象当数组以属性名作为下标来访问属性
-        alert(anFunction['aMethod']);                     // 可以将对象当数组以属性名作为下标来访问方法
-
-        for(var s in anFunction) {                        // 遍历对象的所有属性和方法进行迭代化处理
-            alert(s + ' is a ' + typeof(anFunction[s]));
-        };
     </script>
 </head>
 <body>
