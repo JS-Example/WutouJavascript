@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>语法甘露</title>
+     <script>
+          function New(aClass, aParams) //通用创建函数
+          {
+          function new_() //定义临时的中转函数壳
+          {
+          aClass.Create.apply(this, aParams); //调用原型中定义的的构造函数，中转构造逻辑及构造参数
+          };
+          new_.prototype = aClass; //准备中转原型对象
+          return new new_(); //返回建立最终建立的对象
+          };
+
+          var Person = //定义的类
+          {
+          Create: function(name, age)
+          {
+          this.name = name;
+          this.age = age;
+          },
+          SayHello: function()
+          {
+          alert("Hello, I'm " + this.name);
+          },
+          HowOld: function()
+          {
+          alert(this.name + " is " + this.age + " years old.");
+          }
+          };
+
+          var BillGates = New(Person, ["Bill Gates", 53]); //调用通用函数创建对象，并以数组形式传递构造参数
+          BillGates.SayHello();
+          BillGates.HowOld();
+
+          alert(BillGates.constructor == Object); //输出：true
+     </script>
+ </head>
+ <body>
+     
+ </body>
+ </html>
+ 
