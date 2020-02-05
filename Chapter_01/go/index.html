@@ -1,10 +1,4 @@
-<!--
-来源：http://www.wtostar.com/go/go6.htm
--->
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>禅棋传说</title>
@@ -16,66 +10,65 @@
         }
 
         .B0 {
-            background-image: url('/img/B0.gif');
+            background-image: url('B0.gif');
         }
 
         .B1 {
-            background-image: url('/img/B1.gif');
+            background-image: url('B1.gif');
         }
 
         .B2 {
-            background-image: url('/img/B2.gif');
+            background-image: url('B2.gif');
         }
 
         .B3 {
-            background-image: url('/img/B3.gif');
+            background-image: url('B3.gif');
         }
 
         .B4 {
-            background-image: url('/img/B4.gif');
+            background-image: url('B4.gif');
         }
 
         .B5 {
-            background-image: url('/img/B5.gif');
+            background-image: url('B5.gif');
         }
 
         .B6 {
-            background-image: url('/img/B6.gif');
+            background-image: url('B6.gif');
         }
 
         .B7 {
-            background-image: url('/img/B7.gif');
+            background-image: url('B7.gif');
         }
 
         .B8 {
-            background-image: url('/img/B8.gif');
+            background-image: url('B8.gif');
         }
 
         .BX {
-            background-image: url('/img/BX.gif');
+            background-image: url('BX.gif');
         }
 
         .D0 {
-            background-image: url('/img/D0.gif');
+            background-image: url('D0.gif');
         }
 
         .D1 {
-            background-image: url('/img/D1.gif');
+            background-image: url('D1.gif');
         }
 
         .C0 {
-            background-image: url('/img/C0.gif');
+            background-image: url('C0.gif');
         }
 
         .C1 {
-            background-image: url('/img/C1.gif');
+            background-image: url('C1.gif');
         }
     </style>
 </head>
 
 <body>
     <script type="text/javascript">
-        //<![CDATA[      
         Array.prototype.indexOf = function (item) //给数组扩展一个indexOf方法,用来检索是否为"已知元素"
         {
             for (var i = 0; i < this.length; i++)
@@ -202,11 +195,11 @@
             sound.play = function () {
                 this.src = "play.wav"
             };
-        } else //为Firefox等其他浏览器构造声音对象
+        } else //为Chrome、Firefox等其他浏览器构造声音对象
         {
             var sound = document.body.appendChild(document.createElement("span"));
             sound.play = function () {
-                this.innerHTML = "<bgsound src='play.wav'>"
+                this.innerHTML = "<audio src='play.wav' autoplay='true'>"
             };
         };
         document.body.oncontextmenu = function () //右键驱动悔棋事件
